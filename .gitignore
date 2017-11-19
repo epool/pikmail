@@ -7,5 +7,6 @@
 .idea/modules.xml
 .idea/modules/
 .idea/workspace.xml
+.idea/kotlinc.xml
 build/
 out/

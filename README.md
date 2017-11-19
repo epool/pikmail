@@ -42,14 +42,14 @@ Use it when blocking is safe to use like on web servers.
 ###### Java
 
 ```java
-Profile profile = Pikmail.INSTANCE.getProfile("eduardo.alejandro.pool.ake@gmail.com").blockingGet();
+Profile profile = Pikmail.getProfile("eduardo.alejandro.pool.ake@gmail.com").blockingGet();
 profile.getProfilePictureUrl();
 profile.resizeProfilePictureUrl(500);
 profile.getNickname();
 // OR
-Pikmail.INSTANCE.getProfilePictureUrl("eduardo.alejandro.pool.ake@gmail.com", null).blockingGet();
-Pikmail.INSTANCE.getProfilePictureUrl("eduardo.alejandro.pool.ake@gmail.com", 500).blockingGet();
-Pikmail.INSTANCE.getProfileNickname("eduardo.alejandro.pool.ake@gmail.com").blockingGet();
+Pikmail.getProfilePictureUrl("eduardo.alejandro.pool.ake@gmail.com", null).blockingGet();
+Pikmail.getProfilePictureUrl("eduardo.alejandro.pool.ake@gmail.com", 500).blockingGet();
+Pikmail.getProfileNickname("eduardo.alejandro.pool.ake@gmail.com").blockingGet();
 ```
 
 ###### Kotlin
@@ -72,7 +72,7 @@ Use it when blocking is not safe to use like on Android main thread.
 ###### Java
 
 ```java
-Pikmail.INSTANCE.getProfile("eduardo.alejandro.pool.ake@gmail.com")
+Pikmail.getProfile("eduardo.alejandro.pool.ake@gmail.com")
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread()) // In case you are using it on Android or use any other scheduler you need
         .subscribe(

@@ -33,6 +33,7 @@ object Pikmail {
      * @param [email] Gmail address to obtain its info.
      * @return [Single]<[Profile]>
      */
+    @JvmStatic
     fun getProfile(email: String): Single<Profile> {
         return picasaApi.userInfo(email)
                 .onErrorResumeNext { Single.error(ProfileNotFountException(email, it)) }
@@ -47,6 +48,8 @@ object Pikmail {
      * @param [size] Size to be set on [Profile.profilePictureUrl] for resizing the profile picture. It is the default size used in the Google account.
      * @return [Single]<[String]>
      */
+    @JvmOverloads
+    @JvmStatic
     fun getProfilePictureUrl(email: String, size: Int? = 0): Single<String> = getProfile(email).map { it.resizeProfilePictureUrl(size) }
 
     /**
@@ -55,6 +58,7 @@ object Pikmail {
      * @param [email] Gmail address to obtain its info.
      * @return [Single]<[String]>
      */
+    @JvmStatic
     fun getProfileNickname(email: String): Single<String> = getProfile(email).map { it.nickname }
 
 }
