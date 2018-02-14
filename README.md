@@ -2,6 +2,8 @@
 
 This is a utility written in [Kotlin](http://kotlinlang.org/) that consumes one public [picasa endpoint](http://picasaweb.google.com/data/entry/api/user/eduardo.alejandro.pool.ake@gmail.com?alt=json) to fetch the google profile picture for the email along with the nickname.
 
+You can read [this blog post](https://nearsoft.com/blog/pikmail-emails-to-pictures-using-kotlin/) to know how Pikmail Api works intenally.
+
 ## Libraries
 
 This project uses the following libraries internally to work.
