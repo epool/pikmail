@@ -34,12 +34,10 @@ object Pikmail {
      * @return [Single]<[Profile]>
      */
     @JvmStatic
-    fun getProfile(email: String): Single<Profile> {
-        return picasaApi.userInfo(email)
-                .onErrorResumeNext { Single.error(ProfileNotFountException(email, it)) }
-                .map { it.entry }
-                .map { Profile(it.thumbnail.url, it.nickname.value) }
-    }
+    fun getProfile(email: String): Single<Profile> = picasaApi.userInfo(email)
+            .onErrorResumeNext { Single.error(ProfileNotFountException(email, it)) }
+            .map { it.entry }
+            .map { Profile(it.thumbnail.url, it.nickname.value) }
 
     /**
      * Gets a the [Profile.profilePictureUrl] that can be loaded as an image url which is the user's profile picture from his Google account.
